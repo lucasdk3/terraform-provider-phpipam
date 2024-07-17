@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/vlans"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/vlans"
 )
 
 // resourcePHPIPAMVLAN returns the resource structure for the phpipam_vlan

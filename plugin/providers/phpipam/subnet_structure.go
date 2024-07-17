@@ -6,8 +6,8 @@ import (
 	"strconv"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/subnets"
-	"github.com/pavel-z1/phpipam-sdk-go/phpipam"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/subnets"
+	"github.com/lucasdk3/phpipam-sdk-go/phpipam"
 )
 
 // resourceSubnetOptionalFields represents all the fields that are optional in
@@ -255,17 +255,17 @@ func expandSubnet(d *schema.ResourceData, nestCustomFields bool) subnets.Subnet 
 		MasterSubnetID: d.Get("master_subnet_id").(int),
 		NameserverID:   d.Get("nameserver_id").(int),
 		Nameservers:    d.Get("nameservers").(map[string]interface{}),
-		ShowName:       phpipam.BoolIntString(d.Get("show_name").(bool)),
+		ShowName:       phpipam.BoolInt(d.Get("show_name").(bool)),
 		Permissions:    d.Get("permissions").(string),
-		DNSRecursive:   phpipam.BoolIntString(d.Get("create_ptr_records").(bool)),
-		DNSRecords:     phpipam.BoolIntString(d.Get("display_hostnames").(bool)),
-		ResolveDNS:     phpipam.BoolIntString(d.Get("resolve_dns").(bool)),
-		AllowRequests:  phpipam.BoolIntString(d.Get("allow_ip_requests").(bool)),
+		DNSRecursive:   phpipam.BoolInt(d.Get("create_ptr_records").(bool)),
+		DNSRecords:     phpipam.BoolInt(d.Get("display_hostnames").(bool)),
+		ResolveDNS:     phpipam.BoolInt(d.Get("resolve_dns").(bool)),
+		AllowRequests:  phpipam.BoolInt(d.Get("allow_ip_requests").(bool)),
 		ScanAgent:      d.Get("scan_agent_id").(int),
-		PingSubnet:     phpipam.BoolIntString(d.Get("include_in_ping").(bool)),
-		DiscoverSubnet: phpipam.BoolIntString(d.Get("host_discovery_enabled").(bool)),
-		IsFolder:       phpipam.BoolIntString(d.Get("is_folder").(bool)),
-		IsFull:         phpipam.BoolIntString(d.Get("is_full").(bool)),
+		PingSubnet:     phpipam.BoolInt(d.Get("include_in_ping").(bool)),
+		DiscoverSubnet: phpipam.BoolInt(d.Get("host_discovery_enabled").(bool)),
+		IsFolder:       phpipam.BoolInt(d.Get("is_folder").(bool)),
+		IsFull:         phpipam.BoolInt(d.Get("is_full").(bool)),
 		Threshold:      d.Get("utilization_threshold").(int),
 		Location:       d.Get("location_id").(int),
 		Gateway:        d.Get("gateway").(map[string]interface{}),

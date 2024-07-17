@@ -8,9 +8,9 @@ import (
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/addresses"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/subnets"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/vlans"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/addresses"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/subnets"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/vlans"
 )
 
 // customFieldFilterSchema returns a *schema.Schema for the custom_field_filter

@@ -4,8 +4,8 @@ import (
 	"strconv"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/sections"
-	"github.com/pavel-z1/phpipam-sdk-go/phpipam"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/sections"
+	"github.com/lucasdk3/phpipam-sdk-go/phpipam"
 )
 
 // resourceSectionOptionalFields represents all the fields that are optional in
@@ -131,9 +131,9 @@ func expandSection(d *schema.ResourceData) sections.Section {
 		SubnetOrdering:   d.Get("subnet_ordering").(string),
 		Order:            d.Get("display_order").(int),
 		EditDate:         d.Get("edit_date").(string),
-		ShowVLAN:         phpipam.BoolIntString(d.Get("show_vlan_in_subnet_listing").(bool)),
-		ShowVRF:          phpipam.BoolIntString(d.Get("show_vrf_in_subnet_listing").(bool)),
-		ShowSupernetOnly: phpipam.BoolIntString(d.Get("show_supernet_only").(bool)),
+		ShowVLAN:         phpipam.BoolInt(d.Get("show_vlan_in_subnet_listing").(bool)),
+		ShowVRF:          phpipam.BoolInt(d.Get("show_vrf_in_subnet_listing").(bool)),
+		ShowSupernetOnly: phpipam.BoolInt(d.Get("show_supernet_only").(bool)),
 		DNS:              d.Get("dns_resolver_id").(int),
 	}
 

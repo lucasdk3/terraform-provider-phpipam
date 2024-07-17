@@ -5,8 +5,8 @@ import (
 	"strconv"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/addresses"
-	"github.com/pavel-z1/phpipam-sdk-go/phpipam"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/addresses"
+	"github.com/lucasdk3/phpipam-sdk-go/phpipam"
 )
 
 // resourceAddressOptionalFields represents all the fields that are optional in
@@ -182,7 +182,7 @@ func expandAddress(d *schema.ResourceData) addresses.Address {
 		MACAddress:  d.Get("mac_address").(string),
 		Owner:       d.Get("owner").(string),
 		Tag:         d.Get("state_tag_id").(int),
-		PTRIgnore:   phpipam.BoolIntString(d.Get("skip_ptr_record").(bool)),
+		PTRIgnore:   phpipam.BoolInt(d.Get("skip_ptr_record").(bool)),
 		PTRRecordID: d.Get("ptr_record_id").(int),
 		DeviceID:    d.Get("device_id").(int),
 		Port:        d.Get("switch_port_label").(string),

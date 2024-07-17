@@ -1,3 +1,5 @@
+## 1.6.3
+ * Fix problem with BoolIntString, replaced to BoolInt
 ## 1.5.2
  * Fix error for vlans where custom field not defined 
 ## 1.5.1

@@ -4,13 +4,13 @@ import (
 	"log"
 	"sync"
 
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/addresses"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/l2domains"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/sections"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/subnets"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/vlans"
-	"github.com/pavel-z1/phpipam-sdk-go/phpipam"
-	"github.com/pavel-z1/phpipam-sdk-go/phpipam/session"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/addresses"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/l2domains"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/sections"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/subnets"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/vlans"
+	"github.com/lucasdk3/phpipam-sdk-go/phpipam"
+	"github.com/lucasdk3/phpipam-sdk-go/phpipam/session"
 )
 
 // Config provides the configuration for the PHPIPAM provider.
@@ -68,11 +68,11 @@ type ProviderPHPIPAMClient struct {
 // Client configures and returns a fully initialized PingdomClient.
 func (c *Config) Client() (interface{}, error) {
 	cfg := phpipam.Config{
-		AppID:            c.AppID,
-		Endpoint:         c.Endpoint,
-		Password:         c.Password,
-		Username:         c.Username,
-		Insecure:         c.Insecure,
+		AppID:    c.AppID,
+		Endpoint: c.Endpoint,
+		Password: c.Password,
+		Username: c.Username,
+		Insecure: c.Insecure,
 	}
 	log.Printf("[DEBUG] Initializing PHPIPAM controllers")
 	sess := session.NewSession(cfg)

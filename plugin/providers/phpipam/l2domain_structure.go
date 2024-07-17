@@ -4,7 +4,7 @@ import (
 	"strconv"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/pavel-z1/phpipam-sdk-go/controllers/l2domains"
+	"github.com/lucasdk3/phpipam-sdk-go/controllers/l2domains"
 )
 
 // resourceL2DomainOptionalFields represents all the fields that are optional in
