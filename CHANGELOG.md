@@ -1,3 +1,5 @@
+## 1.6.9
+ * Fix error "gateway_id": &schema.Schema{Type: schema.TypeString,}, para &schema.Schema{Type: schema.TypeInt,}
 ## 1.6.8
  * Fix error in in Subnet.GatewayId
 ## 1.6.3
