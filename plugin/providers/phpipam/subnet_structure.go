@@ -269,7 +269,7 @@ func expandSubnet(d *schema.ResourceData, nestCustomFields bool) subnets.Subnet 
 		Threshold:      d.Get("utilization_threshold").(int),
 		Location:       d.Get("location_id").(int),
 		Gateway:        d.Get("gateway").(map[string]interface{}),
-		GatewayID:      d.Get("gateway_id").(string),
+		GatewayID:      d.Get("gateway_id").(int),
 		CustomFields:   conditionalCustomFields(d, nestCustomFields),
 	}
 

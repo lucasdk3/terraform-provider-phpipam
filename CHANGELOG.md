@@ -1,3 +1,5 @@
+## 1.6.8
+ * Fix error in in Subnet.GatewayId
 ## 1.6.3
  * Fix problem with BoolIntString, replaced to BoolInt
 ## 1.5.2

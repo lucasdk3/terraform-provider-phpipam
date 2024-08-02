@@ -103,7 +103,7 @@ type Subnet struct {
 	Gateway map[string]interface{} `json:"gateway,omitempty"`
 
 	// Gateway IP ID
-	GatewayID string `json:"gatewayId,omitempty"`
+	GatewayID int `json:"gatewayId,omitempty"`
 
 	// A map[string]interface{} of custom fields to set on the resource. Note
 	// that this functionality requires PHPIPAM 1.3 or higher with the "Nest

@@ -185,7 +185,7 @@ github.com/hashicorp/yamux
 # github.com/imdario/mergo v0.3.15
 ## explicit; go 1.13
 github.com/imdario/mergo
-# github.com/lucasdk3/phpipam-sdk-go v0.2.1
+# github.com/lucasdk3/phpipam-sdk-go v0.2.3
 ## explicit; go 1.13
 github.com/lucasdk3/phpipam-sdk-go/controllers/addresses
 github.com/lucasdk3/phpipam-sdk-go/controllers/l2domains
@@ -211,10 +211,6 @@ github.com/mitchellh/go-testing-interface
 # github.com/mitchellh/go-wordwrap v1.0.1
 ## explicit; go 1.14
 github.com/mitchellh/go-wordwrap
-# github.com/mitchellh/gox v1.0.1
-## explicit
-# github.com/mitchellh/iochan v1.0.0
-## explicit
 # github.com/mitchellh/mapstructure v1.5.0
 ## explicit; go 1.14
 github.com/mitchellh/mapstructure

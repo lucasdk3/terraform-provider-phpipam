@@ -2,10 +2,7 @@ module github.com/lucasdk3/terraform-provider-phpipam
 
 go 1.22
 
-require (
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.26.1
-	github.com/lucasdk3/phpipam-sdk-go v0.2.1
-)
+require github.com/hashicorp/terraform-plugin-sdk/v2 v2.26.1
 
 require (
 	github.com/ProtonMail/go-crypto v0.0.0-20230426101702-58e86b294756 // indirect
@@ -37,6 +34,7 @@ require (
 	github.com/hashicorp/terraform-svchost v0.1.0 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/imdario/mergo v0.3.15 // indirect
+	github.com/lucasdk3/phpipam-sdk-go v0.2.3 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.18 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect

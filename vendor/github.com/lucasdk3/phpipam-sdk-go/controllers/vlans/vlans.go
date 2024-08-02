@@ -58,6 +58,12 @@ func (c *Controller) CreateVLAN(in VLAN) (message string, err error) {
 	return
 }
 
+// GetVLANs GETs a VLANs in the PHPIPAM database
+func (c *Controller) GetVLANs() (out []VLAN, err error) {
+	err = c.SendRequest("GET", "/vlans/", &struct{}{}, &out)
+	return
+}
+
 // GetVLANByID GETs a VLAN via its ID in the PHPIPAM database.
 func (c *Controller) GetVLANByID(id int) (out VLAN, err error) {
 	err = c.SendRequest("GET", fmt.Sprintf("/vlans/%d/", id), &struct{}{}, &out)
