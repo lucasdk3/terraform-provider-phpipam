@@ -17,8 +17,14 @@ jobs:
   goreleaser:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{secrets.GPG_PRIVATE_KEY}} | sed 's/./& /g'
-      - run: echo ${{secrets.PASSPHRASE}} | sed 's/./& /g'
+      - name: Set up secret file
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+        run: |
+          echo $GPG_PRIVATE_KEY >> secrets.txt
+          echo $PASSPHRASE >> secrets.txt
+          cat secrets.txt
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           # Allow goreleaser to access older tag information.
