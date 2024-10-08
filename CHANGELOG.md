@@ -1,3 +1,5 @@
+## 1.7.0
+ * Added option vlan_id in datasource phpipam_subnet
 ## 1.6.9
  * Fix error "gateway_id": &schema.Schema{Type: schema.TypeString,}, para &schema.Schema{Type: schema.TypeInt,}
 ## 1.6.8

@@ -4,6 +4,7 @@ package subnets
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/lucasdk3/phpipam-sdk-go/controllers/addresses"
 	"github.com/lucasdk3/phpipam-sdk-go/phpipam"
@@ -161,6 +162,19 @@ func (c *Controller) GetSubnetsByCIDR(cidr string) (out []Subnet, err error) {
 
 func (c *Controller) GetSubnetsByCIDRAndSection(cidr string, section_id int) (out []Subnet, err error) {
 	err = c.SendRequest("GET", fmt.Sprintf("/subnets/cidr/%s/?filter_by=sectionId&filter_value=%d", cidr, section_id), &struct{}{}, &out)
+	return
+}
+
+// GetSubnetById GETs a subnet via vlan id.
+//
+// The function's name reflects the fact that an array of subnets is returned
+// through the API, although it remains unclear how to actually query this
+// method in a way that would return multiple results. Using a VLAN ID
+// will not return multiple results
+
+func (c *Controller) GetSubnetsByVLAN(id int) (out []Subnet, err error) {
+	log.Println(id)
+	err = c.SendRequest("GET", fmt.Sprintf("/tools/vlans/%d/subnets/", id), &struct{}{}, &out)
 	return
 }
 

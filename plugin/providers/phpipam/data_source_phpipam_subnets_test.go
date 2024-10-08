@@ -73,6 +73,27 @@ output "actual_subnet_ids_custom_fields" {
 }
 `
 
+const testAccDataSourcePHPIPAMSubnetsConfigWithVLAN = testAccDataSourcePHPIPAMSubnetsConfigStage1 + `
+variable "vlan_id" {
+  type = number
+  default = 100
+}
+
+resource "phpipam_vlan" "vlan" {
+  vlan_id   = var.vlan_id
+  name      = "Test VLAN"
+  section_id = phpipam_section.section.section_id
+}
+
+data "phpipam_subnets" "subnets_by_vlan" {
+  vlan_id = phpipam_vlan.vlan.vlan_id
+}
+
+output "subnet_ids_by_vlan" {
+  value = data.phpipam_subnets.subnets_by_vlan.subnet_ids
+}
+`
+
 func TestAccDataSourcePHPIPAMSubnets(t *testing.T) {
 	resource.Test(t, resource.TestCase{
 		PreCheck: func() {
@@ -90,6 +111,27 @@ func TestAccDataSourcePHPIPAMSubnets(t *testing.T) {
 					testCheckOutputPair("expected_subnet_ids", "actual_subnet_ids_description"),
 					testCheckOutputPair("expected_subnet_ids", "actual_subnet_ids_description_match"),
 					testCheckOutputPair("expected_subnet_ids", "actual_subnet_ids_custom_fields"),
+				),
+			},
+		},
+	})
+}
+
+func TestAccDataSourcePHPIPAMSubnetsWithVLAN(t *testing.T) {
+	resource.Test(t, resource.TestCase{
+		PreCheck: func() {
+			testAccPreCheck(t)
+			sectionSweep("tf-test", t)
+		},
+		Providers: testAccProviders,
+		Steps: []resource.TestStep{
+			{
+				Config: testAccDataSourcePHPIPAMSubnetsConfigStage1,
+			},
+			{
+				Config: testAccDataSourcePHPIPAMSubnetsConfigWithVLAN,
+				Check: resource.ComposeTestCheckFunc(
+					testCheckOutputPair("expected_subnet_ids", "subnet_ids_by_vlan"),
 				),
 			},
 		},

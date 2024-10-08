@@ -20,6 +20,7 @@ func dataSourcePHPIPAMSubnet() *schema.Resource {
 
 func dataSourcePHPIPAMSubnetRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 	c := meta.(*ProviderPHPIPAMClient).subnetsController
+
 	out := make([]subnets.Subnet, 1)
 	var err error
 	// We need to determine how to get the subnet. An ID search takes priority,
@@ -27,6 +28,11 @@ func dataSourcePHPIPAMSubnetRead(ctx context.Context, d *schema.ResourceData, me
 	switch {
 	case d.Get("subnet_id").(int) != 0:
 		out[0], err = c.GetSubnetByID(d.Get("subnet_id").(int))
+		if err != nil {
+			return diag.FromErr(err)
+		}
+	case d.Get("vlan_id").(int) != 0:
+		out, err = c.GetSubnetsByVLAN(d.Get("vlan_id").(int))
 		if err != nil {
 			return diag.FromErr(err)
 		}

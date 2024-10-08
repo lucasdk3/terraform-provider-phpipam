@@ -211,6 +211,10 @@ func dataSourceSubnetSchema() map[string]*schema.Schema {
 			v.Optional = true
 			v.Computed = true
 			v.ConflictsWith = []string{"subnet_id", "subnet_address", "subnet_mask", "description_match", "custom_field_filter"}
+		case "vlan_id":
+			v.Optional = true
+			v.Computed = true
+			v.ConflictsWith = []string{"subnet_id", "subnet_address", "subnet_mask", "description_match", "custom_field_filter", "description"}
 		default:
 			v.Computed = true
 		}
